@@ -7,15 +7,14 @@ tags:
 这里默认安装了git+github；
 #### 安装Hexo
 
-``` bash
-$ cd d:/hexo
-$ npm install hexo-cli -g
-$ hexo init blog
-$ cd blog
-$ npm install
-$ hexo g # 或者hexo generate
-$ hexo s # 或者hexo server，可以在http://localhost:4000/ 查看
-```
+				$ cd d:/hexo
+				$ npm install hexo-cli -g
+				$ hexo init blog
+				$ cd blog
+				$ npm install
+				$ hexo g # 或者hexo generate
+				$ hexo s # 或者hexo server，可以在http://localhost:4000访问
+
 
 这里有必要提下Hexo常用的几个命令：
 hexo generate (hexo g) 生成静态文件，会在当前目录下生成一个新的叫做public的文件夹
@@ -50,21 +49,20 @@ https://pages.github.com/
 
 #### clone github repo
 
-``` bash
-$git init
-$ cd d:/hexo/blog
-$ git clone https://github.com/xiaohang96/xiaohang96.github.io.git .deploy/xiaohang96.github.io
-```
+				$git init
+				$ cd d:/hexo/blog
+				$ git clone https://github.com/xiaohang96/xiaohang96.github.io.git .deploy/xiaohang96.github.io
+
 将我们之前创建的repo克隆到本地，新建一个目录叫做.deploy用于存放克隆的代码。
 创建一个deploy脚本文件
-``` bash
-hexo generate
-cp -R public/* .deploy/jiji262.github.io
-cd .deploy/jiji262.github.io
-git add .
-git commit -m “update”
-git push origin master
-```
+
+				hexo generate
+				cp -R public/* .deploy/jiji262.github.io
+				cd .deploy/jiji262.github.io
+				git add .
+				git commit -m “update”
+				git push origin master
+
 简单解释一下，hexo generate生成public文件夹下的新内容，然后将其拷贝至github.io的git目录下，然后使用git commit命令提交代码到github.io这个repo的master branch上。
 
 需要部署的时候，执行这段脚本就可以了（比如可以将其保存为deploy.sh）。
